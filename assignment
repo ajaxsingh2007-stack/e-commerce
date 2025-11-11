@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple E-Commerce Portal</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background-color: #f4f4f4; }
+    header { background-color: #333; color: white; padding: 15px; text-align: center; }
+    nav ul { display: flex; justify-content: center; list-style: none; background: #444; }
+    nav ul li { margin: 10px; }
+    nav ul li a { color: white; text-decoration: none; padding: 8px 15px; border-radius: 5px; }
+    nav ul li a:hover { background: #666; }
+    section { padding: 20px; }
+    h2 { color: #333; margin-bottom: 10px; }
+    .product-list, .order-list, .wishlist { display: flex; gap: 15px; flex-wrap: wrap; }
+    .card { background: white; padding: 15px; width: 200px; border-radius: 10px; box-shadow: 0 0 5px #aaa; text-align: center; }
+    input, textarea, button { width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #333; color: white; border: none; cursor: pointer; }
+    button:hover { background: #555; }
+    footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My E-Commerce Portal</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#register">Register</a></li>
+    <li><a href="#login">Login</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#wishlist">Wishlist</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+    <li><a href="#about">About Us</a></li>
+  </ul>
+</nav>
+
+<section id="home">
+  <h2>Welcome to Our Store!</h2>
+  <p>Find the best deals on electronics, fashion, and more.</p>
+</section>
+
+<section id="products">
+  <h2>Product Items</h2>
+  <div class="product-list">
+    <div class="card"><h3>Smartphone</h3><p>₹20,000</p><button>Add to Cart</button></div>
+    <div class="card"><h3>Laptop</h3><p>₹55,000</p><button>Add to Cart</button></div>
+    <div class="card"><h3>Headphones</h3><p>₹2,000</p><button>Add to Cart</button></div>
+    <div class="card"><h3>Watch</h3><p>₹1,500</p><button>Add to Cart</button></div>
+  </div>
+</section>
+
+<section id="register">
+  <h2>User Registration</h2>
+  <form onsubmit="return validateRegister()">
+    <input type="text" id="rname" placeholder="Full Name">
+    <input type="email" id="remail" placeholder="Email">
+    <input type="password" id="rpass" placeholder="Password">
+    <button type="submit">Register</button>
+  </form>
+</section>
+
+<section id="login">
+  <h2>User Login</h2>
+  <form onsubmit="return validateLogin()">
+    <input type="email" id="lemail" placeholder="Email">
+    <input type="password" id="lpass" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+<section id="orders">
+  <h2>Your Orders</h2>
+  <div class="order-list">
+    <div class="card"><h3>Order #101</h3><p>Smartphone - Delivered</p></div>
+    <div class="card"><h3>Order #102</h3><p>Headphones - In Transit</p></div>
+  </div>
+</section>
+
+<section id="wishlist">
+  <h2>Your Wishlist</h2>
+  <div class="wishlist">
+    <div class="card"><h3>Laptop</h3><p>Saved for Later</p></div>
+    <div class="card"><h3>Smartwatch</h3><p>Saved for Later</p></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <h2>Comments & Reviews</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <textarea placeholder="Write your comment..."></textarea>
+    <button type="button" onclick="alert('Thank you for your feedback!')">Submit</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>Customer Care</h2>
+  <p>Email: support@myecommerce.com</p>
+  <p>Phone: +91 98765 43210</p>
+
+  <h3>Report an Issue</h3>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <textarea placeholder="Describe your issue"></textarea>
+    <button type="button" onclick="alert('Your issue has been reported!')">Report</button>
+  </form>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>We are a growing online store offering top products at great prices. Our mission is to make shopping easy and affordable for everyone!</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 My E-Commerce Portal | All Rights Reserved</p>
+</footer>
+
+<script>
+function validateRegister() {
+  let name = document.getElementById("rname").value.trim();
+  let email = document.getElementById("remail").value.trim();
+  let pass = document.getElementById("rpass").value.trim();
+
+  if (name === "" || email === "" || pass === "") {
+    alert("All fields are required!");
+    return false;
+  }
+  if (!email.includes("@")) {
+    alert("Please enter a valid email address.");
+    return false;
+  }
+  if (pass.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return false;
+  }
+  alert("Registration Successful!");
+  return true;
+}
+
+function validateLogin() {
+  let email = document.getElementById("lemail").value.trim();
+  let pass = document.getElementById("lpass").value.trim();
+
+  if (email === "" || pass === "") {
+    alert("Please fill in both fields.");
+    return false;
+  }
+  alert("Login Successful!");
+  return true;
+}
+</script>
+
+</body>
+</html>
